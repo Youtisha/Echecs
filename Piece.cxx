@@ -5,11 +5,28 @@
  */
 
 // A besoin de la declaration de la classe
+#include <iostream>
 #include "Piece.h"
+
+using namespace std;
 
 Piece::Piece()
 {
-  // ne fait rien => objet instancie mais non valide.
+  // ne fait rien => objet instancie mais non validee.
+  cout << "Construction Piece par defaut" << endl;
+}
+
+Piece::~Piece()
+{
+  cout << "Destructeur Piece" << endl;
+}
+
+Piece::Piece( int x, int y, bool white )
+{
+  m_x = x;
+  m_y = y;
+  m_white = white;
+  cout << "Construction Piece specialisee" << endl;
 }
 
 void
@@ -45,3 +62,15 @@ Piece::isWhite()
   return m_white;
 }
 
+bool
+Piece::isBlack()
+{
+  return !m_white;
+}
+
+void
+Piece::affiche()
+{
+  cout << "Piece: x=" << m_x << " y=" << m_y << " "
+       << ( m_white ? "blanche" : "noire" ) << endl;
+}

@@ -1,15 +1,16 @@
-SRC_CXX=\Piece.cxx
+SRC_CXX= testPiece.cxx Piece.cxx Joueur.cxx
+EXE= testPiece
 
 OBJ=${SRC_CXX:.cxx=.o}
 
-all: testPiece
+all: $(EXE)
 
-testPiece: $(OBJ) testPiece.o
-	g++ $(OBJ) testPiece.o -o testPiece
+$(EXE): $(OBJ)
+	g++ $(OBJ) -o $(EXE)
 
 %.o: %.cxx
 	g++ -c $<
 
 clean:
-	@rm -f $(OBJ) testPiece.o testPiece *~
+	@rm -f $(OBJ) $(EXE) *~
 

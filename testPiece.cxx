@@ -7,7 +7,7 @@
 // Utile pour l'affichage
 #include <iostream>
 #include "Piece.h"
-
+#include "Joueur.h"
 
 // Pour utiliser les flux de iostream sans mettre "std::" tout le temps.
 using namespace std;
@@ -22,11 +22,26 @@ int main( int argc, char** argv )
   Piece p1;
   // p1 est une piece blanche de coordonnees (3,3)
   p1.init( 3, 3, true );
+
+  Piece p2( 4, 4, false);
+  
+  if (p1.isWhite())
+    cout << "Piece blanche" << endl;
+  else
+    cout << "Piece noir" << endl;
+
+  cout << "Piece " << ((p2.isBlack())?"noir":"blanche") << endl;
   
   // On l'affiche
-  cout << "Piece: x=" << p1.x() << " y=" << p1.y() << " "
-       << ( p1.isWhite() ? "blanche" : "noire" ) << endl;
-  
+  p1.affiche();
+  p2.affiche();
+
+  //Piece tbl[4];
+
+  Joueur jb(true);
+  Joueur jn(false);
+  jb.affiche();
+  jn.affiche();
 
   // les objets definis dans cette fonction sont automatiquement détruits.
   // Ex : p1
