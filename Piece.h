@@ -21,13 +21,15 @@ public:
   Piece();
   ~Piece();
   Piece( int x, int y, bool white );
+  Piece (const Piece & autre);
+  Piece & operator=(const Piece & autre);
   void init( int x, int y, bool white );
   void move( int x, int y );
-  int x();
-  int y();
-  bool isWhite();
-  bool isBlack();
-  void affiche();
+  int x() const;
+  int y() const;
+  bool isWhite() const;
+  bool isBlack() const;
+  void affiche() const;
 }; 
 
 #endif // !defined Piece_h
